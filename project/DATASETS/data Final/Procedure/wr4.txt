@@ -1,0 +1,43 @@
+create procedure wr4
+as
+	SELECT	lijst_1.datum_1 mnd,
+			lijst_1.gem_temp_overv ov,
+			lijst_2.gem_temp tmp
+	FROM
+			(
+			SELECT	overvallen.datum AS datum_1,
+					AVG(weer.temp) AS gem_temp_overv
+			FROM	overvallen, weer
+			WHERE	overvallen.datum = weer.datum 
+					AND overvallen.uur = weer.uur
+			GROUP BY
+					overvallen.datum
+			) lijst_1,
+			(
+			SELECT	lijst.datum AS datum_2,
+					AVG(lijst.temp_1) as gem_temp
+			FROM
+				(
+				SELECT	weer.datum AS datum,
+						weer.uur AS tijd,
+						weer.temp AS temp_1
+				FROM	weer
+				) lijst
+			GROUP BY
+					lijst.datum
+			) lijst_2
+	WHERE
+			lijst_1.datum_1 = lijst_2.datum_2
+			AND YEAR(lijst_1.datum_1) = '2012'
+			AND (MONTH(lijst_1.datum_1) = '7'
+			OR MONTH(lijst_1.datum_1) = '8'
+			OR MONTH(lijst_1.datum_1) = '9'
+			OR MONTH(lijst_1.datum_1) = '10'
+			OR MONTH(lijst_1.datum_1) = '11'
+			OR MONTH(lijst_1.datum_1) = '12')
+	GROUP BY
+			lijst_1.datum_1,
+			lijst_1.gem_temp_overv,
+			lijst_2.gem_temp
+	ORDER BY
+			lijst_1.datum_1

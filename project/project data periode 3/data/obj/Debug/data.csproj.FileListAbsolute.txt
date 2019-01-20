@@ -1,0 +1,63 @@
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\data.exe.config
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\data.exe
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\data.pdb
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.dll
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.pdb
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.xml
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.Form1.resources
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.Properties.Resources.resources
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.csproj.GenerateResource.Cache
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.csproj.CoreCompileInputs.cache
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.exe
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.pdb
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\EntityFramework.dll
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\EntityFramework.xml
+C:\Users\aeazh_000\Desktop\data\data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.Form2.resources
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.Form3.resources
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.Form4.resources
+C:\Users\aeazh_000\Desktop\data\data\obj\Debug\data.Form5.resources
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\data.exe.config
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\data.exe
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\data.pdb
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\EntityFramework.dll
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.dll
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\EntityFramework.xml
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.pdb
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.xml
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\aeazh_000\Desktop\project data\data\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form1.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form2.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form3.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form4.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form5.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Properties.Resources.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.csproj.GenerateResource.Cache
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.csproj.CoreCompileInputs.cache
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.exe
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.pdb
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form6.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form7.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form10.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form8.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form9.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form11.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form12.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form13.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form14.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.Form15.resources
+C:\Users\aeazh_000\Desktop\project data\data\obj\Debug\data.csprojResolveAssemblyReference.cache

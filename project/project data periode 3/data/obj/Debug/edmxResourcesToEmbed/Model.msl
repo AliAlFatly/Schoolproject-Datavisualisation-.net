@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StraatrovenModelStoreContainer" CdmEntityContainer="StraatrovenEntities">
+    <EntitySetMapping Name="overvallen">
+      <EntityTypeMapping TypeName="StraatrovenModel.overvallen">
+        <MappingFragment StoreEntitySet="overvallen">
+          <ScalarProperty Name="voorval_nr" ColumnName="voorval_nr" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="uur" ColumnName="uur" />
+          <ScalarProperty Name="dagsoort" ColumnName="dagsoort" />
+          <ScalarProperty Name="dagdeel" ColumnName="dagdeel" />
+          <ScalarProperty Name="dagdeel_naam" ColumnName="dagdeel_naam" />
+          <ScalarProperty Name="plaats" ColumnName="plaats" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="district_naam" ColumnName="district_naam" />
+          <ScalarProperty Name="buurt" ColumnName="buurt" />
+          <ScalarProperty Name="subbuurt" ColumnName="subbuurt" />
+          <ScalarProperty Name="straat" ColumnName="straat" />
+          <ScalarProperty Name="opgelost" ColumnName="opgelost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="werkzoekende">
+      <EntityTypeMapping TypeName="StraatrovenModel.werkzoekende">
+        <MappingFragment StoreEntitySet="werkzoekende">
+          <ScalarProperty Name="buurt_code" ColumnName="buurt_code" />
+          <ScalarProperty Name="gem_nr" ColumnName="gem_nr" />
+          <ScalarProperty Name="wijk_buurt" ColumnName="wijk_buurt" />
+          <ScalarProperty Name="wijk_code" ColumnName="wijk_code" />
+          <ScalarProperty Name="wijk_nr" ColumnName="wijk_nr" />
+          <ScalarProperty Name="wijk_naam" ColumnName="wijk_naam" />
+          <ScalarProperty Name="buurt_nr" ColumnName="buurt_nr" />
+          <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+          <ScalarProperty Name="werkzoekende1" ColumnName="werkzoekende" />
+          <ScalarProperty Name="leeftijd" ColumnName="leeftijd" />
+          <ScalarProperty Name="gem_naam" ColumnName="gem_naam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ov">
+      <EntityTypeMapping TypeName="StraatrovenModel.ov">
+        <MappingFragment StoreEntitySet="ov">
+          <ScalarProperty Name="buurt_nr" ColumnName="buurt_nr" />
+          <ScalarProperty Name="count_overvallen" ColumnName="count_overvallen" />
+          <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weer">
+      <EntityTypeMapping TypeName="StraatrovenModel.Weer">
+        <MappingFragment StoreEntitySet="Weer">
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="uur" ColumnName="uur" />
+          <ScalarProperty Name="gem_windsnelheid" ColumnName="gem_windsnelheid" />
+          <ScalarProperty Name="temp" ColumnName="temp" />
+          <ScalarProperty Name="zon" ColumnName="zon" />
+          <ScalarProperty Name="zicht" ColumnName="zicht" />
+          <ScalarProperty Name="bewolking" ColumnName="bewolking" />
+          <ScalarProperty Name="mist" ColumnName="mist" />
+          <ScalarProperty Name="regen" ColumnName="regen" />
+          <ScalarProperty Name="sneeuw" ColumnName="sneeuw" />
+          <ScalarProperty Name="onweer" ColumnName="onweer" />
+          <ScalarProperty Name="ijsvorming" ColumnName="ijsvorming" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="hsp000k" FunctionName="StraatrovenModel.Store.hsp000k">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.hsp000k_Result">
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="hsp" ColumnName="hsp" />
+          <ScalarProperty Name="bn" ColumnName="bn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hsp200k" FunctionName="StraatrovenModel.Store.hsp200k">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.hsp200k_Result">
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="hsp" ColumnName="hsp" />
+          <ScalarProperty Name="bn" ColumnName="bn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hsp400k" FunctionName="StraatrovenModel.Store.hsp400k">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.hsp400k_Result">
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="hsp" ColumnName="hsp" />
+          <ScalarProperty Name="bn" ColumnName="bn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hspA" FunctionName="StraatrovenModel.Store.hspA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.hspA_Result">
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="hsp" ColumnName="hsp" />
+          <ScalarProperty Name="bn" ColumnName="bn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Procedure" FunctionName="StraatrovenModel.Store.Procedure">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.Procedure_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wr" FunctionName="StraatrovenModel.Store.wr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wr_Result">
+          <ScalarProperty Name="mnd" ColumnName="mnd" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="tmp" ColumnName="tmp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wr1" FunctionName="StraatrovenModel.Store.wr1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wr1_Result">
+          <ScalarProperty Name="mnd" ColumnName="mnd" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="tmp" ColumnName="tmp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wr2" FunctionName="StraatrovenModel.Store.wr2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wr2_Result">
+          <ScalarProperty Name="mnd" ColumnName="mnd" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="tmp" ColumnName="tmp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wr3" FunctionName="StraatrovenModel.Store.wr3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wr3_Result">
+          <ScalarProperty Name="mnd" ColumnName="mnd" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="tmp" ColumnName="tmp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wr4" FunctionName="StraatrovenModel.Store.wr4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wr4_Result">
+          <ScalarProperty Name="mnd" ColumnName="mnd" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="tmp" ColumnName="tmp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wrO" FunctionName="StraatrovenModel.Store.wrO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wrO_Result">
+          <ScalarProperty Name="mnd" ColumnName="mnd" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+          <ScalarProperty Name="tmp" ColumnName="tmp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wrP" FunctionName="StraatrovenModel.Store.wrP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wrP_Result">
+          <ScalarProperty Name="rest" ColumnName="rest" />
+          <ScalarProperty Name="sneeuw" ColumnName="sneeuw" />
+          <ScalarProperty Name="ijsvorming" ColumnName="ijsvorming" />
+          <ScalarProperty Name="regen" ColumnName="regen" />
+          <ScalarProperty Name="mist" ColumnName="mist" />
+          <ScalarProperty Name="onweer" ColumnName="onweer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wz16" FunctionName="StraatrovenModel.Store.wz16">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wz16_Result">
+          <ScalarProperty Name="bn" ColumnName="bn" />
+          <ScalarProperty Name="wz" ColumnName="wz" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wzA" FunctionName="StraatrovenModel.Store.wzA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wzA_Result">
+          <ScalarProperty Name="bn" ColumnName="bn" />
+          <ScalarProperty Name="wzA" ColumnName="wzA" />
+          <ScalarProperty Name="wz15" ColumnName="wz15" />
+          <ScalarProperty Name="wz25" ColumnName="wz25" />
+          <ScalarProperty Name="wz35" ColumnName="wz35" />
+          <ScalarProperty Name="wz45" ColumnName="wz45" />
+          <ScalarProperty Name="wz55" ColumnName="wz55" />
+          <ScalarProperty Name="ov" ColumnName="ov" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="wzP" FunctionName="StraatrovenModel.Store.wzP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StraatrovenModel.wzP_Result">
+          <ScalarProperty Name="overvallen" ColumnName="overvallen" />
+          <ScalarProperty Name="wz15" ColumnName="wz15" />
+          <ScalarProperty Name="wz25" ColumnName="wz25" />
+          <ScalarProperty Name="wz35" ColumnName="wz35" />
+          <ScalarProperty Name="wz45" ColumnName="wz45" />
+          <ScalarProperty Name="wz55" ColumnName="wz55" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

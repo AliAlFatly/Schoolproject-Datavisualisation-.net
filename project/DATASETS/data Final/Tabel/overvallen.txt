@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[overvallen] (
+    [voorval_nr]    VARCHAR (50) NOT NULL,
+    [datum]         DATE         NULL,
+    [uur]           INT          NULL,
+    [dagsoort]      VARCHAR (10) NULL,
+    [dagdeel]       VARCHAR (50) NULL,
+    [dagdeel_naam]  VARCHAR (50) NULL,
+    [plaats]        VARCHAR (50) NULL,
+    [district]      INT          NULL,
+    [district_naam] VARCHAR (50) NULL,
+    [buurt]         INT          NOT NULL,
+    [subbuurt]      VARCHAR (20) NULL,
+    [straat]        VARCHAR (50) NULL,
+    [opgelost]      VARCHAR (10) NULL,
+    CONSTRAINT [PK_overvallen_1] PRIMARY KEY CLUSTERED ([voorval_nr] ASC)
+);
+

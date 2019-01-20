@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[Weer] (
+    [datum]            DATE NOT NULL,
+    [uur]              INT  NOT NULL,
+    [gem_windsnelheid] INT  NOT NULL,
+    [temp]             INT  NOT NULL,
+    [zon]              INT  NOT NULL,
+    [zicht]            INT  NOT NULL,
+    [bewolking]        INT  NOT NULL,
+    [mist]             BIT  NOT NULL,
+    [regen]            BIT  NOT NULL,
+    [sneeuw]           BIT  NOT NULL,
+    [onweer]           BIT  NOT NULL,
+    [ijsvorming]       BIT  NOT NULL
+);
+

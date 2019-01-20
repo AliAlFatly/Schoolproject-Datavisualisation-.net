@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StraatrovenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'straatroven.dbo.hsp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="hsp">
+          <Property Name="buurt_code" Type="varchar" MaxLength="50" />
+          <Property Name="gem_nr" Type="varchar" MaxLength="50" />
+          <Property Name="gem_naam" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_buurt" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_code" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_nr" Type="varchar" MaxLength="50" />
+          <Property Name="wijk_naam" Type="varchar" MaxLength="50" />
+          <Property Name="buurt_nr" Type="int" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="50" />
+          <Property Name="gem_huisprijs" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'straatroven.dbo.ov' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ov">
+          <Key>
+            <PropertyRef Name="buurt_nr" />
+          </Key>
+          <Property Name="buurt_nr" Type="int" Nullable="false" />
+          <Property Name="count_overvallen" Type="int" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="overvallen">
+          <Key>
+            <PropertyRef Name="voorval_nr" />
+          </Key>
+          <Property Name="voorval_nr" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="datum" Type="date" />
+          <Property Name="uur" Type="int" />
+          <Property Name="dagsoort" Type="varchar" MaxLength="10" />
+          <Property Name="dagdeel" Type="varchar" MaxLength="50" />
+          <Property Name="dagdeel_naam" Type="varchar" MaxLength="50" />
+          <Property Name="plaats" Type="varchar" MaxLength="50" />
+          <Property Name="district" Type="int" />
+          <Property Name="district_naam" Type="varchar" MaxLength="50" />
+          <Property Name="buurt" Type="int" Nullable="false" />
+          <Property Name="subbuurt" Type="varchar" MaxLength="20" />
+          <Property Name="straat" Type="varchar" MaxLength="50" />
+          <Property Name="opgelost" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'straatroven.dbo.Weer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Weer">
+          <Key>
+            <PropertyRef Name="datum" />
+            <PropertyRef Name="uur" />
+            <PropertyRef Name="gem_windsnelheid" />
+            <PropertyRef Name="temp" />
+            <PropertyRef Name="zon" />
+            <PropertyRef Name="zicht" />
+            <PropertyRef Name="bewolking" />
+            <PropertyRef Name="mist" />
+            <PropertyRef Name="regen" />
+            <PropertyRef Name="sneeuw" />
+            <PropertyRef Name="onweer" />
+            <PropertyRef Name="ijsvorming" />
+          </Key>
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="uur" Type="int" Nullable="false" />
+          <Property Name="gem_windsnelheid" Type="int" Nullable="false" />
+          <Property Name="temp" Type="int" Nullable="false" />
+          <Property Name="zon" Type="int" Nullable="false" />
+          <Property Name="zicht" Type="int" Nullable="false" />
+          <Property Name="bewolking" Type="int" Nullable="false" />
+          <Property Name="mist" Type="bit" Nullable="false" />
+          <Property Name="regen" Type="bit" Nullable="false" />
+          <Property Name="sneeuw" Type="bit" Nullable="false" />
+          <Property Name="onweer" Type="bit" Nullable="false" />
+          <Property Name="ijsvorming" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="werkzoekende">
+          <Key>
+            <PropertyRef Name="buurt_naam" />
+            <PropertyRef Name="werkzoekende" />
+          </Key>
+          <Property Name="buurt_code" Type="varchar" MaxLength="20" />
+          <Property Name="gem_nr" Type="int" />
+          <Property Name="wijk_buurt" Type="int" />
+          <Property Name="wijk_code" Type="varchar" MaxLength="20" />
+          <Property Name="wijk_nr" Type="int" />
+          <Property Name="wijk_naam" Type="varchar" MaxLength="20" />
+          <Property Name="buurt_nr" Type="int" Nullable="false" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="werkzoekende" Type="int" Nullable="false" />
+          <Property Name="leeftijd" Type="int" Nullable="false" />
+          <Property Name="gem_naam" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'straatroven.dbo.wz' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="wz">
+          <Property Name="buurt_code" Type="varchar" MaxLength="20" />
+          <Property Name="gem_nr" Type="int" />
+          <Property Name="wijk_buurt" Type="int" />
+          <Property Name="wijk_code" Type="varchar" MaxLength="20" />
+          <Property Name="wijk_nr" Type="int" />
+          <Property Name="wijk_naam" Type="varchar" MaxLength="50" />
+          <Property Name="buurt_nr" Type="int" />
+          <Property Name="buurt_naam" Type="varchar" MaxLength="50" />
+          <Property Name="werkzoekende_A" Type="int" />
+          <Property Name="werkzoekende_15" Type="int" />
+          <Property Name="werkzoekende_25" Type="int" />
+          <Property Name="werkzoekende_35" Type="int" />
+          <Property Name="werkzoekende_45" Type="int" />
+          <Property Name="werkzoekende_55" Type="int" />
+          <Property Name="gem_naam" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+        <Function Name="hsp000k" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hsp200k" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hsp400k" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="hspA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="param1" Type="int" Mode="In" />
+          <Parameter Name="param2" Type="int" Mode="In" />
+        </Function>
+        <Function Name="wr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wr4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wrO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wrP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wz16" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wzA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="wzP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="StraatrovenModelStoreContainer">
+          <EntitySet Name="overvallen" EntityType="Self.overvallen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ov" EntityType="Self.ov" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ov].[buurt_nr] AS [buurt_nr], 
+    [ov].[count_overvallen] AS [count_overvallen], 
+    [ov].[buurt_naam] AS [buurt_naam]
+    FROM [dbo].[ov] AS [ov]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Weer" EntityType="Self.Weer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Weer].[datum] AS [datum], 
+    [Weer].[uur] AS [uur], 
+    [Weer].[gem_windsnelheid] AS [gem_windsnelheid], 
+    [Weer].[temp] AS [temp], 
+    [Weer].[zon] AS [zon], 
+    [Weer].[zicht] AS [zicht], 
+    [Weer].[bewolking] AS [bewolking], 
+    [Weer].[mist] AS [mist], 
+    [Weer].[regen] AS [regen], 
+    [Weer].[sneeuw] AS [sneeuw], 
+    [Weer].[onweer] AS [onweer], 
+    [Weer].[ijsvorming] AS [ijsvorming]
+    FROM [dbo].[Weer] AS [Weer]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StraatrovenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="overvallen">
+          <Key>
+            <PropertyRef Name="voorval_nr" />
+          </Key>
+          <Property Name="voorval_nr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="uur" Type="Int32" />
+          <Property Name="dagsoort" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dagdeel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dagdeel_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="plaats" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="district" Type="Int32" />
+          <Property Name="district_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="buurt" Type="Int32" Nullable="false" />
+          <Property Name="subbuurt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="straat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="opgelost" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="werkzoekende">
+          <Key>
+            <PropertyRef Name="buurt_naam" />
+            <PropertyRef Name="werkzoekende1" />
+          </Key>
+          <Property Name="buurt_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="gem_nr" Type="Int32" />
+          <Property Name="wijk_buurt" Type="Int32" />
+          <Property Name="wijk_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="wijk_nr" Type="Int32" />
+          <Property Name="wijk_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="buurt_nr" Type="Int32" Nullable="false" />
+          <Property Name="buurt_naam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="werkzoekende1" Type="Int32" Nullable="false" />
+          <Property Name="leeftijd" Type="Int32" Nullable="false" />
+          <Property Name="gem_naam" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ov">
+          <Key>
+            <PropertyRef Name="buurt_nr" />
+          </Key>
+          <Property Name="buurt_nr" Type="Int32" Nullable="false" />
+          <Property Name="count_overvallen" Type="Int32" />
+          <Property Name="buurt_naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Weer">
+          <Key>
+            <PropertyRef Name="datum" />
+            <PropertyRef Name="uur" />
+            <PropertyRef Name="gem_windsnelheid" />
+            <PropertyRef Name="temp" />
+            <PropertyRef Name="zon" />
+            <PropertyRef Name="zicht" />
+            <PropertyRef Name="bewolking" />
+            <PropertyRef Name="mist" />
+            <PropertyRef Name="regen" />
+            <PropertyRef Name="sneeuw" />
+            <PropertyRef Name="onweer" />
+            <PropertyRef Name="ijsvorming" />
+          </Key>
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="uur" Type="Int32" Nullable="false" />
+          <Property Name="gem_windsnelheid" Type="Int32" Nullable="false" />
+          <Property Name="temp" Type="Int32" Nullable="false" />
+          <Property Name="zon" Type="Int32" Nullable="false" />
+          <Property Name="zicht" Type="Int32" Nullable="false" />
+          <Property Name="bewolking" Type="Int32" Nullable="false" />
+          <Property Name="mist" Type="Boolean" Nullable="false" />
+          <Property Name="regen" Type="Boolean" Nullable="false" />
+          <Property Name="sneeuw" Type="Boolean" Nullable="false" />
+          <Property Name="onweer" Type="Boolean" Nullable="false" />
+          <Property Name="ijsvorming" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StraatrovenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="overvallen" EntityType="Self.overvallen" />
+          <EntitySet Name="werkzoekende" EntityType="Self.werkzoekende" />
+          <EntitySet Name="ov" EntityType="Self.ov" />
+          <EntitySet Name="Weer" EntityType="Self.Weer" />
+          <FunctionImport Name="hsp000k" ReturnType="Collection(StraatrovenModel.hsp000k_Result)" />
+          <FunctionImport Name="hsp200k" ReturnType="Collection(StraatrovenModel.hsp200k_Result)" />
+          <FunctionImport Name="hsp400k" ReturnType="Collection(StraatrovenModel.hsp400k_Result)" />
+          <FunctionImport Name="hspA" ReturnType="Collection(StraatrovenModel.hspA_Result)" />
+          <FunctionImport Name="Procedure" ReturnType="Collection(StraatrovenModel.Procedure_Result)">
+            <Parameter Name="param1" Mode="In" Type="Int32" />
+            <Parameter Name="param2" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="wr" ReturnType="Collection(StraatrovenModel.wr_Result)" />
+          <FunctionImport Name="wr1" ReturnType="Collection(StraatrovenModel.wr1_Result)" />
+          <FunctionImport Name="wr2" ReturnType="Collection(StraatrovenModel.wr2_Result)" />
+          <FunctionImport Name="wr3" ReturnType="Collection(StraatrovenModel.wr3_Result)" />
+          <FunctionImport Name="wr4" ReturnType="Collection(StraatrovenModel.wr4_Result)" />
+          <FunctionImport Name="wrO" ReturnType="Collection(StraatrovenModel.wrO_Result)" />
+          <FunctionImport Name="wrP" ReturnType="Collection(StraatrovenModel.wrP_Result)" />
+          <FunctionImport Name="wz16" ReturnType="Collection(StraatrovenModel.wz16_Result)" />
+          <FunctionImport Name="wzA" ReturnType="Collection(StraatrovenModel.wzA_Result)" />
+          <FunctionImport Name="wzP" ReturnType="Collection(StraatrovenModel.wzP_Result)" />
+        </EntityContainer>
+        <ComplexType Name="hsp000k_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="hsp200k_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="hsp400k_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="hspA_Result">
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="hsp" Nullable="true" />
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="Procedure_Result">
+          <Property Type="Int32" Name="Column1" Nullable="true" />
+          <Property Type="Int32" Name="Column2" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr_Result">
+          <Property Type="String" Name="mnd" Nullable="false" MaxLength="25" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr1_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr2_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr3_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wr4_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wrO_Result">
+          <Property Type="DateTime" Name="mnd" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+          <Property Type="Int32" Name="tmp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wrP_Result">
+          <Property Type="Int32" Name="rest" Nullable="true" />
+          <Property Type="Int32" Name="sneeuw" Nullable="true" />
+          <Property Type="Int32" Name="ijsvorming" Nullable="true" />
+          <Property Type="Int32" Name="regen" Nullable="true" />
+          <Property Type="Int32" Name="mist" Nullable="true" />
+          <Property Type="Int32" Name="onweer" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wz16_Result">
+          <Property Type="String" Name="bn" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="wz" Nullable="false" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wzA_Result">
+          <Property Type="String" Name="bn" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="wzA" Nullable="true" />
+          <Property Type="Int32" Name="wz15" Nullable="true" />
+          <Property Type="Int32" Name="wz25" Nullable="true" />
+          <Property Type="Int32" Name="wz35" Nullable="true" />
+          <Property Type="Int32" Name="wz45" Nullable="true" />
+          <Property Type="Int32" Name="wz55" Nullable="true" />
+          <Property Type="Int32" Name="ov" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="wzP_Result">
+          <Property Type="Int32" Name="overvallen" Nullable="true" />
+          <Property Type="Int32" Name="wz15" Nullable="true" />
+          <Property Type="Int32" Name="wz25" Nullable="true" />
+          <Property Type="Int32" Name="wz35" Nullable="true" />
+          <Property Type="Int32" Name="wz45" Nullable="true" />
+          <Property Type="Int32" Name="wz55" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StraatrovenModelStoreContainer" CdmEntityContainer="StraatrovenEntities">
+          <EntitySetMapping Name="overvallen">
+            <EntityTypeMapping TypeName="StraatrovenModel.overvallen">
+              <MappingFragment StoreEntitySet="overvallen">
+                <ScalarProperty Name="voorval_nr" ColumnName="voorval_nr" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uur" ColumnName="uur" />
+                <ScalarProperty Name="dagsoort" ColumnName="dagsoort" />
+                <ScalarProperty Name="dagdeel" ColumnName="dagdeel" />
+                <ScalarProperty Name="dagdeel_naam" ColumnName="dagdeel_naam" />
+                <ScalarProperty Name="plaats" ColumnName="plaats" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="district_naam" ColumnName="district_naam" />
+                <ScalarProperty Name="buurt" ColumnName="buurt" />
+                <ScalarProperty Name="subbuurt" ColumnName="subbuurt" />
+                <ScalarProperty Name="straat" ColumnName="straat" />
+                <ScalarProperty Name="opgelost" ColumnName="opgelost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="werkzoekende">
+            <EntityTypeMapping TypeName="StraatrovenModel.werkzoekende">
+              <MappingFragment StoreEntitySet="werkzoekende">
+                <ScalarProperty Name="buurt_code" ColumnName="buurt_code" />
+                <ScalarProperty Name="gem_nr" ColumnName="gem_nr" />
+                <ScalarProperty Name="wijk_buurt" ColumnName="wijk_buurt" />
+                <ScalarProperty Name="wijk_code" ColumnName="wijk_code" />
+                <ScalarProperty Name="wijk_nr" ColumnName="wijk_nr" />
+                <ScalarProperty Name="wijk_naam" ColumnName="wijk_naam" />
+                <ScalarProperty Name="buurt_nr" ColumnName="buurt_nr" />
+                <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+                <ScalarProperty Name="werkzoekende1" ColumnName="werkzoekende" />
+                <ScalarProperty Name="leeftijd" ColumnName="leeftijd" />
+                <ScalarProperty Name="gem_naam" ColumnName="gem_naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ov">
+            <EntityTypeMapping TypeName="StraatrovenModel.ov">
+              <MappingFragment StoreEntitySet="ov">
+                <ScalarProperty Name="buurt_nr" ColumnName="buurt_nr" />
+                <ScalarProperty Name="count_overvallen" ColumnName="count_overvallen" />
+                <ScalarProperty Name="buurt_naam" ColumnName="buurt_naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weer">
+            <EntityTypeMapping TypeName="StraatrovenModel.Weer">
+              <MappingFragment StoreEntitySet="Weer">
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uur" ColumnName="uur" />
+                <ScalarProperty Name="gem_windsnelheid" ColumnName="gem_windsnelheid" />
+                <ScalarProperty Name="temp" ColumnName="temp" />
+                <ScalarProperty Name="zon" ColumnName="zon" />
+                <ScalarProperty Name="zicht" ColumnName="zicht" />
+                <ScalarProperty Name="bewolking" ColumnName="bewolking" />
+                <ScalarProperty Name="mist" ColumnName="mist" />
+                <ScalarProperty Name="regen" ColumnName="regen" />
+                <ScalarProperty Name="sneeuw" ColumnName="sneeuw" />
+                <ScalarProperty Name="onweer" ColumnName="onweer" />
+                <ScalarProperty Name="ijsvorming" ColumnName="ijsvorming" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="hsp000k" FunctionName="StraatrovenModel.Store.hsp000k">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hsp000k_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp200k" FunctionName="StraatrovenModel.Store.hsp200k">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hsp200k_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hsp400k" FunctionName="StraatrovenModel.Store.hsp400k">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hsp400k_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hspA" FunctionName="StraatrovenModel.Store.hspA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.hspA_Result">
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="hsp" ColumnName="hsp" />
+                <ScalarProperty Name="bn" ColumnName="bn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Procedure" FunctionName="StraatrovenModel.Store.Procedure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.Procedure_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr" FunctionName="StraatrovenModel.Store.wr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr1" FunctionName="StraatrovenModel.Store.wr1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr1_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr2" FunctionName="StraatrovenModel.Store.wr2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr2_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr3" FunctionName="StraatrovenModel.Store.wr3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr3_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wr4" FunctionName="StraatrovenModel.Store.wr4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wr4_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wrO" FunctionName="StraatrovenModel.Store.wrO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wrO_Result">
+                <ScalarProperty Name="mnd" ColumnName="mnd" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+                <ScalarProperty Name="tmp" ColumnName="tmp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wrP" FunctionName="StraatrovenModel.Store.wrP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wrP_Result">
+                <ScalarProperty Name="rest" ColumnName="rest" />
+                <ScalarProperty Name="sneeuw" ColumnName="sneeuw" />
+                <ScalarProperty Name="ijsvorming" ColumnName="ijsvorming" />
+                <ScalarProperty Name="regen" ColumnName="regen" />
+                <ScalarProperty Name="mist" ColumnName="mist" />
+                <ScalarProperty Name="onweer" ColumnName="onweer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wz16" FunctionName="StraatrovenModel.Store.wz16">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wz16_Result">
+                <ScalarProperty Name="bn" ColumnName="bn" />
+                <ScalarProperty Name="wz" ColumnName="wz" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wzA" FunctionName="StraatrovenModel.Store.wzA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wzA_Result">
+                <ScalarProperty Name="bn" ColumnName="bn" />
+                <ScalarProperty Name="wzA" ColumnName="wzA" />
+                <ScalarProperty Name="wz15" ColumnName="wz15" />
+                <ScalarProperty Name="wz25" ColumnName="wz25" />
+                <ScalarProperty Name="wz35" ColumnName="wz35" />
+                <ScalarProperty Name="wz45" ColumnName="wz45" />
+                <ScalarProperty Name="wz55" ColumnName="wz55" />
+                <ScalarProperty Name="ov" ColumnName="ov" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="wzP" FunctionName="StraatrovenModel.Store.wzP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StraatrovenModel.wzP_Result">
+                <ScalarProperty Name="overvallen" ColumnName="overvallen" />
+                <ScalarProperty Name="wz15" ColumnName="wz15" />
+                <ScalarProperty Name="wz25" ColumnName="wz25" />
+                <ScalarProperty Name="wz35" ColumnName="wz35" />
+                <ScalarProperty Name="wz45" ColumnName="wz45" />
+                <ScalarProperty Name="wz55" ColumnName="wz55" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

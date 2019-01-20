@@ -1,0 +1,74 @@
+
+CREATE procedure wrP
+AS
+	--rest
+	SELECT COUNT(overvallen.voorval_nr) as rest,
+		sneeuw_ijsvorming_regen_mist_onweer.sneeuw, 
+		sneeuw_ijsvorming_regen_mist_onweer.ijsvorming, 
+		sneeuw_ijsvorming_regen_mist_onweer.regen, 
+		sneeuw_ijsvorming_regen_mist_onweer.mist, 
+		sneeuw_ijsvorming_regen_mist_onweer.onweer
+	FROM overvallen, weer,
+		(
+		--overvallen sneeuw
+		SELECT COUNT(overvallen.voorval_nr) as sneeuw,
+			ijsvorming_regen_mist_onweer.ijsvorming, 
+			ijsvorming_regen_mist_onweer.regen, 
+			ijsvorming_regen_mist_onweer.mist, 
+			ijsvorming_regen_mist_onweer.onweer
+		FROM overvallen, weer,
+			(
+			--overvallen ijsvorming
+			SELECT COUNT(overvallen.voorval_nr) as ijsvorming, 
+				regen_mist_onweer.regen, 
+				regen_mist_onweer.mist, 
+				regen_mist_onweer.onweer
+			FROM overvallen, weer,
+				(
+				--overvallen regen
+				SELECT COUNT(overvallen.voorval_nr) as regen, mist_onweer.onweer, mist_onweer.mist
+				FROM overvallen, weer,
+					(
+					--overvallen mist
+					SELECT COUNT(overvallen.voorval_nr) as mist, onweer.onweer as onweer
+					FROM overvallen, weer,
+						(
+						--overvallen onweer
+						SELECT COUNT(overvallen.voorval_nr) as onweer
+						FROM overvallen, weer
+						WHERE overvallen.datum = weer.datum AND overvallen.uur = weer.uur AND weer.onweer='1'
+						) onweer
+					WHERE overvallen.datum = weer.datum AND overvallen.uur = weer.uur AND weer.mist='1'
+					GROUP BY onweer.onweer
+					) mist_onweer
+				WHERE overvallen.datum = weer.datum AND overvallen.uur = weer.uur AND weer.regen='1'
+				GROUP BY mist_onweer.onweer, mist_onweer.mist
+				) regen_mist_onweer
+			WHERE overvallen.datum = weer.datum AND overvallen.uur = weer.uur AND weer.ijsvorming='1'
+			GROUP BY regen_mist_onweer.regen, regen_mist_onweer.mist, regen_mist_onweer.onweer
+			) ijsvorming_regen_mist_onweer
+		WHERE overvallen.datum = weer.datum AND overvallen.uur = weer.uur AND weer.sneeuw='1'
+		GROUP BY 
+			ijsvorming_regen_mist_onweer.ijsvorming, 
+			ijsvorming_regen_mist_onweer.regen, 
+			ijsvorming_regen_mist_onweer.mist, 
+			ijsvorming_regen_mist_onweer.onweer
+		) sneeuw_ijsvorming_regen_mist_onweer
+	WHERE overvallen.datum = weer.datum 
+		AND overvallen.uur = weer.uur 
+		AND NOT weer.sneeuw='1'
+		AND NOT weer.ijsvorming='1'
+		AND NOT weer.regen='1'
+		AND NOT weer.onweer='1'
+		AND NOT weer.mist='1'
+	GROUP BY 
+		sneeuw_ijsvorming_regen_mist_onweer.sneeuw, 
+		sneeuw_ijsvorming_regen_mist_onweer.ijsvorming, 
+		sneeuw_ijsvorming_regen_mist_onweer.regen, 
+		sneeuw_ijsvorming_regen_mist_onweer.mist, 
+		sneeuw_ijsvorming_regen_mist_onweer.onweer
+
+
+
+
+

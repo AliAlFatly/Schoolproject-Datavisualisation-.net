@@ -1,0 +1,49 @@
+CREATE procedure wr
+as
+	SELECT	CONCAT(sub_b.yr,'.', sub_b.mt) mnd,
+			sub_b.gem_tempa_overv ov,
+			sub_c.gem_temp tmp
+	FROM
+		(
+		SELECT	YEAR(sub_a.datum) as yr,
+				MONTH(sub_a.datum) as mt,
+				AVG(sub_a.temp) as gem_tempa_overv
+		FROM	(
+				SELECT	overvallen.voorval_nr,
+						overvallen.datum,
+						overvallen.uur,
+						weer.temp
+				FROM	overvallen, weer
+				WHERE	overvallen.datum = weer.datum 
+						AND overvallen.uur = weer.uur
+				) sub_a
+		GROUP BY
+			YEAR(sub_a.datum),
+			MONTH(sub_a.datum)
+		) sub_b,
+		(
+		SELECT	YEAR(lijst.datum) as jaar,
+				MONTH(lijst.datum) as maand,
+				AVG(lijst.temp_1) as gem_temp
+		FROM
+			(
+			SELECT	weer.datum AS datum,
+					weer.uur AS tijd,
+					weer.temp AS temp_1
+			FROM	weer
+			) lijst
+		GROUP BY
+			YEAR(lijst.datum),
+			MONTH(lijst.datum)
+		) sub_c
+	WHERE
+		sub_b.yr = sub_c.jaar
+		AND sub_b.mt = sub_c.maand
+	GROUP BY
+		sub_b.yr,
+		sub_b.mt,
+		sub_b.gem_tempa_overv,
+		sub_c.gem_temp
+	ORDER BY
+		sub_b.yr,
+		sub_b.mt

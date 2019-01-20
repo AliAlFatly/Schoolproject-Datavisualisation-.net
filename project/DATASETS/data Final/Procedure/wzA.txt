@@ -1,0 +1,7 @@
+CREATE procedure wzA
+as
+	SELECT w.buurt_naam as bn, w.werkzoekende_A wzA, w.werkzoekende_15 wz15, w.werkzoekende_25 wz25, w.werkzoekende_35 wz35, w.werkzoekende_45 wz45, w.werkzoekende_55 wz55, o.count_overvallen as ov
+	FROM wz w, ov o
+	where o.buurt_nr = w.buurt_nr
+	GROUP BY o.count_overvallen, w.buurt_naam, w.werkzoekende_A, w.werkzoekende_15,w.werkzoekende_25, w.werkzoekende_35, w.werkzoekende_45, w.werkzoekende_55
+	ORDER BY w.buurt_naam

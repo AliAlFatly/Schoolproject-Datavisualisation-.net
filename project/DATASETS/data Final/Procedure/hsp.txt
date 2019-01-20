@@ -1,0 +1,12 @@
+CREATE procedure hspA
+as
+	
+	SELECT COUNT(o.voorval_nr) ov,l.gem_huisprijs/1000 hsp, CONCAT(UPPER(LEFT(l.buurt_naam,1)),LOWER(SUBSTRING(l.buurt_naam,2,LEN(l.buurt_naam)))) bn
+	
+	FROM overvallen o, hsp l
+	
+	WHERE o.buurt = l.buurt_nr
+	
+	GROUP BY l.buurt_naam, l.gem_huisprijs
+	
+	ORDER BY COUNT(o.voorval_nr)

@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[ov] (
+    [buurt_nr]         INT          NOT NULL,
+    [count_overvallen] INT          NULL,
+    [buurt_naam]       VARCHAR (50) NULL
+);
+

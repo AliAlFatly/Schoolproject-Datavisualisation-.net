@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[hsp] (
+    [buurt_code]    VARCHAR (50) NULL,
+    [gem_nr]        VARCHAR (50) NULL,
+    [gem_naam]      VARCHAR (50) NULL,
+    [wijk_buurt]    VARCHAR (50) NULL,
+    [wijk_code]     VARCHAR (50) NULL,
+    [wijk_nr]       VARCHAR (50) NULL,
+    [wijk_naam]     VARCHAR (50) NULL,
+    [buurt_nr]      INT          NULL,
+    [buurt_naam]    VARCHAR (50) NULL,
+    [gem_huisprijs] INT          NULL
+);
+

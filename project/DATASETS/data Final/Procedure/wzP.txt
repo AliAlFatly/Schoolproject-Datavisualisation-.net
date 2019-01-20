@@ -1,0 +1,43 @@
+create procedure wzP
+as
+	SELECT	COUNT(overvallen.voorval_nr) overvallen,
+			wz15, wz25, wz35, wz45, wz55
+	FROM	overvallen,
+			(
+			SELECT	wz15, wz25, wz35, wz45,
+					SUM(werkzoekende.werkzoekende) wz55
+			FROM werkzoekende,
+					(
+					SELECT	SUM(werkzoekende.werkzoekende) wz45, 
+							wz35, wz25, wz15
+					FROM werkzoekende,
+							(
+							SELECT SUM(werkzoekende.werkzoekende) wz35, wz25, wz15
+							FROM werkzoekende,
+									(
+									SELECT SUM(werkzoekende.werkzoekende) wz25, wz15
+									FROM werkzoekende,
+										(
+										SELECT SUM(werkzoekende.werkzoekende) wz15
+										FROM werkzoekende
+										WHERE werkzoekende.leeftijd < 25
+										) wz25
+									WHERE	werkzoekende.leeftijd > 24
+											AND werkzoekende.leeftijd < 35
+									GROUP BY wz15
+									) wz35
+							WHERE	werkzoekende.leeftijd > 34
+									AND werkzoekende.leeftijd < 45
+							GROUP BY
+									wz25, wz15
+							) wz45
+					WHERE		werkzoekende.leeftijd > 44
+								AND werkzoekende.leeftijd < 55
+					GROUP BY wz35, wz25, wz15
+					) wz55
+			WHERE	werkzoekende.leeftijd > 55
+			GROUP BY
+					wz15, wz25, wz35, wz45
+			) werkzoekenden
+	GROUP BY
+			wz15, wz25, wz35, wz45, wz55

@@ -1,0 +1,10 @@
+create procedure hsp200k
+as
+	-- Waar huisprijs tussen 200000 en 400000
+	SELECT     COUNT(o.voorval_nr) ov,
+		l.gem_huisprijs/10000 hsp, 
+		CONCAT(UPPER(LEFT(l.buurt_naam,1)),LOWER(SUBSTRING(l.buurt_naam,2,LEN(l.buurt_naam)))) bn
+	FROM overvallen o, hsp l
+	WHERE o.buurt = l.buurt_nr AND l.gem_huisprijs < 400000 AND l.gem_huisprijs > 200000
+	GROUP BY l.buurt_naam, l.gem_huisprijs
+	ORDER BY l.gem_huisprijs

@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[wz] (
+    [buurt_code]      VARCHAR (20) NULL,
+    [gem_nr]          INT          NULL,
+    [wijk_buurt]      INT          NULL,
+    [wijk_code]       VARCHAR (20) NULL,
+    [wijk_nr]         INT          NULL,
+    [wijk_naam]       VARCHAR (50) NULL,
+    [buurt_nr]        INT          NULL,
+    [buurt_naam]      VARCHAR (50) NULL,
+    [werkzoekende_A]  INT          NULL,
+    [werkzoekende_15] INT          NULL,
+    [werkzoekende_25] INT          NULL,
+    [werkzoekende_35] INT          NULL,
+    [werkzoekende_45] INT          NULL,
+    [werkzoekende_55] INT          NULL,
+    [gem_naam]        VARCHAR (10) NULL
+);
+

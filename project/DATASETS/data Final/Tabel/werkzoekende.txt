@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[werkzoekende] (
+    [buurt_code]   VARCHAR (20) NULL,
+    [gem_nr]       INT          NULL,
+    [wijk_buurt]   INT          NULL,
+    [wijk_code]    VARCHAR (20) NULL,
+    [wijk_nr]      INT          NULL,
+    [wijk_naam]    VARCHAR (20) NULL,
+    [buurt_nr]     INT          NOT NULL,
+    [buurt_naam]   VARCHAR (20) NOT NULL,
+    [werkzoekende] INT          NOT NULL,
+    [leeftijd]     INT          NOT NULL,
+    [gem_naam]     VARCHAR (10) NULL,
+    CONSTRAINT [PK_Table] PRIMARY KEY CLUSTERED ([buurt_naam] ASC, [werkzoekende] ASC)
+);
+
